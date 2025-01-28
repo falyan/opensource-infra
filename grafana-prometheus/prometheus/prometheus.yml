@@ -1,0 +1,45 @@
+global:
+  scrape_interval:     30s
+  scrape_timeout: 10s
+  evaluation_interval: 30s
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+      monitor: 'docker-host-alpha'
+
+# Load and evaluate rules in this file every 'evaluation_interval' seconds.
+rule_files:
+  - "alert.rules"
+
+# A scrape configuration containing exactly one endpoint to scrape.
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 30s
+    scrape_timeout: 10s
+    static_configs:
+      - targets: ['localhost:9090']
+
+
+## --- example Node Exporter for node--- ##
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['10.10.20.136:9100']
+        labels:
+          instance: 'jktnpa901158'
+      - targets: ['10.10.20.137:9100']
+        labels:
+          instance: 'jktnpa901159'
+      - targets: ['10.10.20.62:9100']
+        labels:
+          instance: 'jktnpap901128'
+      - targets: ['10.10.20.64:9100']
+        labels:
+          instance: 'jktnpap901124'
+      - targets: ['10.10.20.63:9100']
+        labels:
+          instance: 'jktnpap901126'
+      - targets: ['192.168.6.65:9100']
+        labels:
+          instance: 'jktnpap901151'

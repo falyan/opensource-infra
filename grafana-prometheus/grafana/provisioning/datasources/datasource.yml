@@ -1,0 +1,26 @@
+apiVersion: 1
+
+datasources:
+  - name: "Prometheus"
+    type: "prometheus"
+    access: "proxy"
+    orgId: 1
+    url: "http://prometheus:9090"
+    basicAuth: false
+    isDefault: true
+    editable: true
+
+  - name: "Loki"
+    type: "loki"
+    url: "https://mdsgrafana-loki.matahari.id"
+    isDefault: false
+    jsonData:
+      maxLines: 1000
+
+  - name: "Kube Prometheus"
+    type: "prometheus"
+    access: "proxy"
+    orgId: 1
+    url: "https://mdsprometheus-kube.matahari.id"
+    basicAuth: false
+    editable: true

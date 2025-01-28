@@ -1,0 +1,51 @@
+auth_enabled: false
+
+common:
+  path_prefix: /mnt/loki
+
+server:
+  http_listen_port: 3100
+
+ingester:
+  lifecycler:
+    address: 127.0.0.1
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+    final_sleep: 0s
+  chunk_idle_period: 5m
+  chunk_retain_period: 30s
+  wal:
+    dir: "/mnt/loki/wal"
+
+schema_config:
+  configs:
+    - from: 2024-01-01
+      store: tsdb
+      object_store: filesystem
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+storage_config:
+  tsdb_shipper:
+    active_index_directory: /mnt/loki/tsdb-index
+    cache_location: /mnt/loki/tsdb-cache
+  filesystem:
+    directory: /mnt/loki/chunk
+
+limits_config:
+  allow_structured_metadata: true
+  reject_old_samples: false
+  reject_old_samples_max_age: 168h
+  retention_period: 168h
+
+compactor:
+  working_directory: /mnt/loki/compactor
+
+
+table_manager:
+  retention_deletes_enabled: true
+  retention_period: 168h
