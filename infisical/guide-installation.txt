@@ -16,4 +16,4 @@ Requirement
 4. apply docker compose file
     docker compose up -d
 5. Note
-- if you want infisical connect with kubernetes you should setup and config secret operator on your kubernetes 
+   if you want infisical connect with kubernetes you should setup and config secret operator on your kubernetes, follow this link https://github.com/falyan/opensource-infra/tree/main/secret-oprator
