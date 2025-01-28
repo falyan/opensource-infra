@@ -1,6 +1,6 @@
 ## Installation Guide Infisical Dashboard with Docker Compose
 Requirement
-  - makesure you have a server for this guide minimum 4 vcpu and 4 GB RAM and record DNS for your domain
+  - makesure you have a server for this guide (for infisical dashboard) minimum 4 vcpu and 4 GB RAM and record DNS for your domain
   - makesure you have a docker and docker compose on your machine
   - makesur you have SMTP server
 
