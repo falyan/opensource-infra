@@ -6,7 +6,7 @@ services:
     volumes:
       - './config:/etc/gitlab-runner'
       - '/var/run/docker.sock:/var/run/docker.sock'
-      - './kubeconfig:/etc/gitlab-runner/kubeconfig:kube'
+      - './kubeconfig:/etc/gitlab-runner/kubeconfig'
     environment:
       - TZ=Asia/Jakarta
       - KUBECONFIG=/etc/gitlab-runner/kubeconfig
