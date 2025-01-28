@@ -1,0 +1,12 @@
+services:
+  gitlab-runner:
+    image: gitlab/gitlab-runner:latest
+    container_name: gitlab-runner
+    restart: always
+    volumes:
+      - './config:/etc/gitlab-runner'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './kubeconfig:/etc/gitlab-runner/kubeconfig:kube'
+    environment:
+      - TZ=Asia/Jakarta
+      - KUBECONFIG=/etc/gitlab-runner/kubeconfig
