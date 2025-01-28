@@ -1,0 +1,2 @@
+- makesure you have namespace called monitoring for apply this file
+- you can run with kubectl aplly -f promtail.yaml

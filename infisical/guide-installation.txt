@@ -1,0 +1,19 @@
+## Installation Guide Infisical Dashboard with Docker Compose
+Requirement
+  - makesure you have a server for this guide minimum 4 vcpu and 4 GB RAM and record DNS for your domain
+  - makesure you have a docker and docker compose on your machine
+  - makesur you have SMTP server
+
+1. clone reposotiry
+    git clone https://github.com/falyan/opensource-infra.git
+2. change Dir
+    cd infisical
+3. File you should change and config
+    - docker-compose.yml line 50
+    - nginx.conf line 6,12,18
+    - file .env line 1,2,8,9,10,11,12,13,14,15, line 1 and 2 read guide README-FOR-ENVIRONMENT.txt
+    - certificate your domain in directory cert (makesure you have a valid SSL ca cert and key)
+4. apply docker compose file
+    docker compose up -d
+5. Note
+- if you want infisical connect with kubernetes you should setup and config secret operator on your kubernetes 

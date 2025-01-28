@@ -1,0 +1,22 @@
+## makesure you have helm and kustomize on your kubernetes machine
+
+Setting up secret operator
+1. make directory
+  mkdir secret-operator
+
+2. create or generate chart form helm template
+  kustomize build --enable-helm . 
+
+3. Create namespace called secret-operator
+  kubectl create namespace secret-oprator
+
+3. apply file kustomization.yaml
+
+4. connect infisical dashboard to cluster kubernetes
+
+   kubectl create secret generic secrets-operator \
+   --from-literal=clientId=509cc641-9661-4eb7-b401-5asdasd \ #get from infisical portal
+   --from-literal=clientSecret=1d8dbbedc89493a57d056asdasdasd421857a90e889f9e09c15849e5e3197721f8 \ #get from infisical portal
+   -n secrets-operator
+
+5. now you can use the infisical to secure your variable secret for your apps

@@ -12,7 +12,7 @@ datasources:
 
   - name: "Loki"
     type: "loki"
-    url: "https://mdsgrafana-loki.matahari.id"
+    url: "https://your_loki_domain"
     isDefault: false
     jsonData:
       maxLines: 1000
@@ -21,6 +21,6 @@ datasources:
     type: "prometheus"
     access: "proxy"
     orgId: 1
-    url: "https://mdsprometheus-kube.matahari.id"
+    url: "https://your_kube_metrics_domain"
     basicAuth: false
     editable: true

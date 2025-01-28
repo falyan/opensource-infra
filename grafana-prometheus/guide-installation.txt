@@ -1,0 +1,19 @@
+## Installation Guide Grafana prometheus with Docker Compose
+Requirement
+  - makesure you have a server for this guide minimum 4 vcpu and 4 GB RAM and record DNS for your domain
+  - makesure you have a docker and docker compose on your machine
+
+1. clone reposotiry
+    git clone https://github.com/falyan/opensource-infra.git
+2. change Dir
+    cd grafana-prometheus
+3. File you should change and config
+    - docker-compose.yml line 50
+    - nginx.conf line 6,14,24
+    - file grafana-prometheus/grafana/provisioning/datasources/datasource.yml line 15,24 (make sure you have loki and kube metric first)
+    - certificate your domain in directory cert (makesure you have a valid SSL ca cert and key)
+4. apply docker compose file
+    docker compose up -d
+5. Note
+- your dashboard will create with provisioning on path file grafana-prometheus/grafana/provisioning/dashboards
+- your datasource will create with provisioning on path file grafana-prometheus/grafana/provisioning/dashboards

@@ -25,13 +25,9 @@ services:
       logging_jobname: "containerlogs"
     ports:
       - "3100:3100"
-    volumes:
-      # directory must be created first, with uid:gid 10001:10001
+    volumes:1
       - /mnt/loki/:/mnt/
       - ./complete-local-config.yaml:/etc/loki/complete-local-config.yaml
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-    # command: -config.file=/etc/loki/azure-storage-config.yaml
     command: -config.file=/etc/loki/complete-local-config.yaml -config.expand-env=true
-    #command: -config.file=/etc/loki/azure-config.yaml
-    # user: 10001:10001
